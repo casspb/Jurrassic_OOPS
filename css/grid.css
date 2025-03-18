@@ -62,9 +62,10 @@ ul, li{
   grid-column: 2;
   display: grid;
   grid-template-columns: repeat(4, minmax(0,1fr));
-  grid-column-gap: 24px;
+  grid-column-gap: 10px;
   max-width: 1200px;
-  padding: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .col-span-1	{grid-column: span 1 / span 1;}
