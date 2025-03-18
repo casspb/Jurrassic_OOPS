@@ -1,18 +1,40 @@
 .hidden{
     display: none;
 }
+//logo 
+.logo{
+    width: 64px;
+}
+
+.dino-icon{
+    width: 81px;
+    height: 73px; 
+}
+
 
 //dino svg
-
-.dino-section{
+.dino-selection{
+    li{
+        list-style: none;
+    }
     img{
-        width: 81.5px;
+        width: 81px;
         height: 73px;
     }
 }
 
-@media (max-width: 768px) {
-    .dino-section{
+@media screen and (min-width: 1200px) {
+    .logo{
+        width: 87px;
+    }
+
+    .dino-icon{
+        width: 93px;
+        height: 83px;
+    }
+
+    .dino-selection{
+      
         img{
             width: 93px;
             height: 83px;
