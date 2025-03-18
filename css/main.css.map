@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"main.css"}
+{"version":3,"sources":["../sass/abstracts/_fonts.scss","../sass/abstracts/_variables.scss","../sass/pages/_home.scss","../sass/components/_index.scss"],"names":[],"mappings":"AAQA,YACI,kCAAA,CACA,eAAA,CACA,iBAAA,CACA,mBAAA,CACA,UCbI,CDgBR,GACI,cAdW,CAeX,UClBI,CDmBJ,mCAAA,CACA,eAAA,CAGJ,GACI,cApBW,CAqBX,aCxBK,CDyBL,mCAAA,CACA,eAAA,CAGJ,GACI,cA1BW,CA2BX,UChCI,CDqCR,EACI,cAhCU,CAiCV,aCrCS,CDsCT,mCAAA,CACA,eAAA,CEzCJ,KACI,+CAAA,CCDJ,QACI,YAAA","file":"main.css"}

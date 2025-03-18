@@ -10,7 +10,8 @@ $font-size-p: 16px;
     font-family: "Jersey 10", sans-serif;
     font-weight: 400;
     font-style: normal;
-    letter-spacing: 15%;
+    letter-spacing: 10px;
+    color: v.$white;
 }
 
 h1{
@@ -33,12 +34,6 @@ h3{
 
 }
 
-h4{
-    font-size: $font-size-h4;
-    color: v.$white;
-    font-family: "Inria Sans", sans-serif;
-    font-style: bold;
-}
 
 p{
     font-size: $font-size-p;
