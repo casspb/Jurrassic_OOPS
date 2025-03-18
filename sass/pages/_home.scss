@@ -2,16 +2,29 @@
 
 
 body{
-    margin-top: 2em;
+    margin-top: .5em;
     background-image: url("../images/blue-grid.jpg");
+}
+
+.region-selection{
+    margin-top: 1em;
+    h2{
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    img{
+        padding: 1em;
+    }
 }
 
 //card display
 
 .card-display{
-    margin-top: 2em;
+    margin-top: 1.5em;
 
     h3{
+        margin-left: -2.5em;
         margin-top: .3em;
     }
     .dino-info{
@@ -31,5 +44,13 @@ body{
 
 .fun-fact{
     padding: 1em;
+}
+
+@media screen and (min-width: 720px) {
+    .card-display{
+        h3{
+            margin-left: 0;
+        }
+    }
 }
 
