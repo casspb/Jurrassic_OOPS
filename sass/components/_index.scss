@@ -1,3 +1,21 @@
 .hidden{
     display: none;
 }
+
+//dino svg
+
+.dino-section{
+    img{
+        width: 81.5px;
+        height: 73px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dino-section{
+        img{
+            width: 93px;
+            height: 83px;
+        }
+    }
+}
