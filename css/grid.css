@@ -54,21 +54,17 @@ ul, li{
  grid-template-columns: 1fr minmax(0, 1200px) 1fr;
  position: relative;
  width: 100%;
- padding: 0 20px;
  
 }
 
-.column-start-2 {
-grid-column: 2;
-}
 
 .grid-con{
+  grid-column: 2;
   display: grid;
   grid-template-columns: repeat(4, minmax(0,1fr));
   grid-column-gap: 24px;
   max-width: 1200px;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
 }
 
 .col-span-1	{grid-column: span 1 / span 1;}
@@ -95,8 +91,6 @@ grid-column: 2;
      display: grid; 
      grid-template-columns: repeat(12, minmax(0, 1fr));
      grid-column-gap: 16px;
-     padding-left: 5em;
-     padding-right: 5em;
   }
 
   .m-col-span-1	{grid-column: span 1 / span 1;}
