@@ -1,3 +1,25 @@
+@use '../abstracts' as a;
+
+
 body{
     background-image: url("../images/blue-grid.jpg");
 }
+
+//card display
+
+.card-display{
+    .dino-info{
+        height: 389px;
+        width: 277px;
+        background-color: #0fa8c05a ;
+        background-image: url(../images/Jurassic-card.png);
+        background-size: cover;
+        border-radius: 20px;
+        
+        .dino-card-details{
+            padding-top: 60px;
+            padding-left: 20px;
+        }
+    }
+}
+

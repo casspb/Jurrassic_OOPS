@@ -1,8 +1,8 @@
 @use 'variables' as v;
 
 // Font size defaults desktop
-$font-size-h1: 64px;
-$font-size-h2: 40px;
+$font-size-h1: 36px;
+$font-size-h2: 24px;
 $font-size-h3: 32px;
 $font-size-p: 16px;
 
@@ -13,6 +13,10 @@ $font-size-p: 16px;
     letter-spacing: 10px;
     color: v.$white;
 }
+
+
+
+
 
 h1{
     font-size: $font-size-h1;
@@ -40,4 +44,17 @@ p{
     color: v.$light-blue;
     font-family: "Inria Sans", sans-serif;
     font-style: bold;
+}
+
+@media screen and (min-width: 712px) {
+    h1{
+        font-size:64px;
+      
+    }
+    
+    h2{
+        font-size: 40px;
+ 
+    }
+
 }
