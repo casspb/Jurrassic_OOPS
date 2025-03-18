@@ -1,6 +1,10 @@
 .hidden{
     display: none;
 }
+.mobile-hide{
+    display: none;
+}
+
 //logo 
 .logo{
     width: 64px;
@@ -12,20 +16,21 @@
 }
 
 .dino-selection {
+    margin-top: 4em;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    height: 350px;
+    height: 440px;
 
     ul {
         margin: 40px 0;
         display: flex;
         flex-direction: column;
         overflow-y: auto;
-        max-height: 300px; 
+        max-height: 345px; 
         position: relative;
-        gap: 10px;
+        gap: 9px;
         scroll-behavior: smooth; 
         overflow: hidden;
 
