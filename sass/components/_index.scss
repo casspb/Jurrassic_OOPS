@@ -1,18 +1,20 @@
-.hidden{
-    display: none;
-}
-.mobile-hide{
+.hidden {
     display: none;
 }
 
-//logo 
-.logo{
-    width: 64px;
+.mobile-hide {
+    visibility: hidden;
 }
 
-.dino-icon{
+// logo 
+.logo {
+    margin: 1em;
+    width: 50px;
+}
+
+.dino-icon {
     width: 81px;
-    height: 73px; 
+    height: 73px;
 }
 
 .dino-selection {
@@ -28,42 +30,42 @@
         display: flex;
         flex-direction: column;
         overflow-y: auto;
-        max-height: 345px; 
+        max-height: 345px;
         position: relative;
         gap: 9px;
-        scroll-behavior: smooth; 
+        scroll-behavior: smooth;
         overflow: hidden;
 
         li {
             list-style: none;
-      
 
-        svg {
-            width: 81px;
-            height: 73px;
-            transition: filter 0.3s ease-in-out;
-        }
-        &:hover svg path {
-            fill: #79FFFF; 
-            stroke: #79FFFF; 
-        }
-        
-        &.active svg path{
-            fill: #79FFFF; 
-            stroke: #79FFFF; 
-        }
-        
-        &:hover svg ellipse {
-            stroke: #79FFFF;  
-        }
-        
-        &.active svg ellipse {
-            stroke: #79FFFF; 
+            svg {
+                width: 81px;
+                height: 73px;
+                transition: filter 0.3s ease-in-out;
+            }
+
+            &:hover svg path {
+                fill: #79FFFF;
+                stroke: #79FFFF;
+            }
+
+            &.active svg path {
+                fill: #79FFFF;
+                stroke: #79FFFF;
+            }
+
+            &:hover svg ellipse {
+                stroke: #79FFFF;
+            }
+
+            &.active svg ellipse {
+                stroke: #79FFFF;
+            }
         }
     }
-    }
 
-    // Scroll Arrows
+
     .arrow-up,
     .arrow-down {
         position: absolute;
@@ -85,10 +87,27 @@
     }
 }
 
-// Desktop Layout (Min 1200px)
-@media screen and (min-width: 1200px) {
+.selected-icon {
+    margin: 0;
+   svg path {
+    width: 60px;
+        fill: #79FFFF;
+        stroke: #79FFFF;
+    }
+
+svg ellipse {
+        stroke: #79FFFF;
+    }
+}
+
+
+@media screen and (min-width: 720px) {
+    .mobile-hide {
+        visibility: visible;
+    }
+
     .logo {
-        width: 87px;
+        width: 60px;
     }
 
     .dino-icon {
@@ -97,20 +116,32 @@
     }
 
     .dino-selection {
-        ul {
-            flex-direction: row; 
-            overflow: visible;
-            max-height: unset;
-        }
+        margin-top: -.5em;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+        gap: 0px;
+        padding: 0 10px;
+        height: auto; /* Adjust height to fit content */
+    }
 
-        svg {
-            width: 93px;
-            height: 83px;
-        }
+    .dino-selection ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+        gap: 10px;
+        max-height: unset;
+        overflow: visible;
+        padding: 0;
+    }
 
-        .arrow-up,
-        .arrow-down {
-            display: none; 
-        }
+    .dino-selection li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .arrow-up,
+    .arrow-down {
+        display: none;
     }
 }
