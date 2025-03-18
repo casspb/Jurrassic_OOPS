@@ -1,23 +1,23 @@
 class Dinosaur{
     constructor(
-        Name,
+        id,
         Height,
         Length,
         Diet,
         Personality,
         Pronunciation,
-        Appearance
+        // Appearance
     ){
-        this.Name = Name;
+        this.id = id;
         this.Height = Height;
         this.Length = Length;
         this.Diet = Diet;
         this.Personality = Personality;
         this.Pronunciation = Pronunciation;
-        this.Appearance = {
-            sound: soundMade,
-            look: image
-        }
+        // this.Appearance = {
+        //     sound: soundMade,
+        //     look: image
+        //}
     }
 }
 
