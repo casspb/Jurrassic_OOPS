@@ -18,13 +18,26 @@ body{
     }
 }
 
+// Logo
+
+.logo {
+    margin: 1em;
+    width: 50px;
+}
+
+.dino-icon {
+    width: 81px;
+    height: 73px;
+}
+
+
 //card display
 
 .card-display{
     margin-top: 1.5em;
 
     h3{
-        margin-left: -2.5em;
+        margin-left: 0.2em;
         margin-top: .3em;
     }
     .dino-info{
@@ -51,6 +64,10 @@ body{
         h3{
             margin-left: 0;
         }
+    }
+
+    .logo {
+        width: 60px;
     }
 }
 
