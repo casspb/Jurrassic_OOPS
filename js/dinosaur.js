@@ -6,7 +6,9 @@ class Dinosaur{
         Diet,
         Personality,
         Pronunciation,
+        img,
         Facts
+
      
         // Appearance
     ){
@@ -16,7 +18,9 @@ class Dinosaur{
         this.Diet = Diet;
         this.Personality = Personality;
         this.Pronunciation = Pronunciation;
+        this.img = img;
         this.Facts = Facts;
+
         // this.Appearance = {
         //     sound: soundMade,
         //     look: image

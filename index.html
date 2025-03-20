@@ -147,7 +147,7 @@
                         <p><span>Diet: {{ selectedDino.Diet }}</span></p>
                         <p><span>Personality Traits: {{ selectedDino.Personality }}</span></p>
                         <p><span>Pronunciation: {{ selectedDino.Pronunciation }} </span></p>
-                        <img>
+                        <img class="dino_img" :src="selectedDino.img" :alt="selectedDino.Name">
                     </div>
                 </div>
     </div>
