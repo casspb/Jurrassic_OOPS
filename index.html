@@ -20,6 +20,9 @@
   </script>
     <script defer type="module" src="js/main.js"></script>
     <script defer type="module" src="js/dino-scroll.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script defer src="js/gsap.js"></script>
 </head>
 
 <body >
@@ -138,7 +141,7 @@
                 <h3 class="col-span-3">{{ selectedDino?.Name || "Select a Dinosaur" }}</h3>
     
                 <div class="dino-info col-span-full" v-if="selectedDino">
-                    <div class="dino-card-details">
+                    <div class="dino-card-details gsap-fade">
                         <p><span>Height: {{ selectedDino.Height }}</span></p>
                         <p><span>Length: {{ selectedDino.Length }}</span></p>
                         <p><span>Diet: {{ selectedDino.Diet }}</span></p>
