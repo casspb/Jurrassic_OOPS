@@ -86,7 +86,7 @@ ul, li{
 .col-end-5	{grid-column-end: 5;}
 
  /* ---Tablet Library Grid Styles--- */
- @media screen and (min-width:720px){
+ @media screen and (min-width:795px){
 
   .grid-con { 
      display: grid; 

@@ -41,7 +41,7 @@
    
 
     <section class="grid-con">
-        <div class="dino-selection col-span-1 m-col-span-4  l-col-start-2 l-col-span-4">
+        <div class="dino-selection col-span-1 m-col-span-3  m-col-start-2 l-col-start-2 l-col-span-4">
         <img class="arrow-up" src="images/arrow-down.svg" alt="arrow-down">
         <ul>
             <li id="Ankylosaurus">
@@ -138,25 +138,31 @@
         <img class="arrow-down" src="images/arrow-down.svg" alt="arrow-down">
         </div>
 
-        <div class="card-display col-span-3 m-col-span-6 l-col-start-6">
+        <div class="card-display col-span-3 m-col-span-6 m-col-start-6">
             <div class="grid-con selected-icon">
-                <h3 class="col-span-full">{{ selectedDino?.Name || "Select a Dinosaur" }}</h3>
-                
-                <div class=" col-span-full">
+                <div class="col-span-full" >
+                    <p v-if="selectedDino?.dangerous" class="dangerous-warning ">DANGEROUS! BEWARE!</p>
+              <h3 >{{ selectedDino?.Name || "Select a Dinosaur" }}</h3>
+        
+            </div>
+          
+          
+              <div class="col-span-full">
                 <div class="dino-info" v-if="selectedDino">
-                    <div class="dino-card-details gsap-fade">
-                        <p><span>Height: {{ selectedDino.Height }}</span></p>
-                        <p><span>Length: {{ selectedDino.Length }}</span></p>
-                        <p><span>Diet: {{ selectedDino.Diet }}</span></p>
-                        <p><span>Personality Traits: {{ selectedDino.Personality }}</span></p>
-                        <p><span>Pronunciation: {{ selectedDino.Pronunciation }} </span></p>
-                        <img class="dino_img" :src="selectedDino.img" :alt="selectedDino.Name">
-                    </div>
+                  <div class="dino-card-details gsap-fade">
+                    <p><span>Height: {{ selectedDino.Height }}</span></p>
+                    <p><span>Length: {{ selectedDino.Length }}</span></p>
+                    <p><span>Diet: {{ selectedDino.Diet }}</span></p>
+                    <p><span>Personality Traits: {{ selectedDino.Personality }}</span></p>
+                    <p><span>Pronunciation: {{ selectedDino.Pronunciation }} </span></p>
+                    <img class="dino_img" :src="selectedDino.img" :alt="selectedDino.Name">
+                  </div>
                 </div>
                 <p v-if="selectedDino" class="fun-fact">{{ selectedDino.Facts }}</p>
-              
+              </div>
             </div>
-    </div>
+          </div>
+          
  
         </div>
    

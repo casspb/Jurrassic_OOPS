@@ -1,4 +1,5 @@
 // Dino Selection 
+@use '../abstracts' as a;
 
 .dino-selection {
     margin-top: 4em;
@@ -73,7 +74,6 @@
 .selected-icon {
     h3{
         text-align: center;
-        margin-bottom: .5em;
     }
 
     margin: 0;
@@ -92,6 +92,13 @@ svg ellipse {
     width: 80%;
 }
 
+.dangerous-warning{
+    text-align: center;
+    color: a.$yellow;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
 @media screen and (min-width: 720px) {
 
     
@@ -105,6 +112,7 @@ svg ellipse {
         display: grid;
         gap: 0px;
         padding: 0 10px;
+        height: auto;
     }
 
     .dino-selection ul {
