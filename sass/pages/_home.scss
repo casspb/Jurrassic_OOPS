@@ -1,10 +1,12 @@
 @use '../abstracts' as a;
 
 
+
 body{
     background-image: url("../images/blue-grid.jpg");
 }
 .title-section{
+    padding-top: 1em;
     background: linear-gradient(to bottom, rgb(0, 33, 66), rgba(0, 51, 102, 0));   
 }
 
