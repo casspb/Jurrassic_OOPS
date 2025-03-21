@@ -1,0 +1,104 @@
+@use '../abstracts' as a;
+
+
+
+body{
+    background-image: url("../images/blue-grid.jpg");
+    background-position: center;
+}
+.title-section{
+    padding-top: 1em;
+    background: linear-gradient(to bottom, rgb(0, 33, 66), rgba(0, 51, 102, 0));   
+}
+
+.region-selection{
+    margin-top: 2.3em;
+    h2{
+        text-align: center;
+    }
+
+    img{
+        padding: 1em;
+    }
+}
+
+// Logo
+
+.logo {
+    margin: 1em;
+    width: 50px;
+}
+
+.dino-icon {
+    width: 81px;
+    height: 73px;
+}
+//footer
+footer{
+    margin-top: 4em;
+    margin-bottom: 0;
+    padding: 10em 2em 2em;
+   text-align: center;
+   background: linear-gradient(to bottom, rgba(0, 51, 102, 0), rgb(0, 33, 66));   
+}
+//card display
+
+.card-display{
+  justify-items: center;
+    h3{
+        margin-top: .3em;
+    }
+    .dino-info{
+        height: 349px;
+        width: 247px;
+        background-color: #0fa8c05a ;
+        background-image: url(../images/Jurassic-card.png);
+        background-size: cover;
+        border-radius: 20px;
+        
+        .dino-card-details{
+            padding-top: 25px;
+            padding-right: 5px;
+            padding-bottom: 30px;
+        }
+    }
+}
+
+.fun-fact{
+    padding: 10px;
+    text-align: center;
+    width: 247px;
+    color: #F4FA36;
+}
+
+@media screen and (min-width: 720px) {
+    .card-display{
+        margin-left: 4em;
+    .dino-info{
+        padding-top: 35px;
+        padding-left: 30px;
+        height: 465px;
+        width: 330px;
+    }
+    }
+    .fun-fact{
+        width: 330px;
+       
+    }
+    .card-display{
+        h3{
+            margin-left: 0;
+        }
+    }
+
+    .logo {
+        width: 60px;
+    }
+}
+
+.dino-info{
+    padding-top: 20px;
+    padding-left: 20px;
+    height: 509px;
+    width: 360px;
+}

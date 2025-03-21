@@ -1,0 +1,305 @@
+@media screen and (width >= 712px) {
+  h1 {
+    font-size: 52px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+}
+
+body {
+  background-image: url("blue-grid.0f5b5f88.jpg");
+  background-position: center;
+}
+
+.title-section {
+  background: linear-gradient(#002142, #0360);
+  padding-top: 1em;
+}
+
+.region-selection {
+  margin-top: 2.3em;
+}
+
+.region-selection h2 {
+  text-align: center;
+}
+
+.region-selection img {
+  padding: 1em;
+}
+
+.logo {
+  width: 50px;
+  margin: 1em;
+}
+
+.dino-icon {
+  width: 81px;
+  height: 73px;
+}
+
+footer {
+  text-align: center;
+  background: linear-gradient(#0360, #002142);
+  margin-top: 4em;
+  margin-bottom: 0;
+  padding: 10em 2em 2em;
+}
+
+.card-display {
+  justify-items: center;
+}
+
+.card-display h3 {
+  margin-top: .3em;
+}
+
+.card-display .dino-info {
+  background-color: #0fa8c05a;
+  background-image: url("Jurassic-card.482dd01e.png");
+  background-size: cover;
+  border-radius: 20px;
+  width: 247px;
+  height: 349px;
+}
+
+.card-display .dino-info .dino-card-details {
+  padding-top: 25px;
+  padding-bottom: 30px;
+  padding-right: 5px;
+}
+
+.fun-fact {
+  text-align: center;
+  color: #f4fa36;
+  width: 247px;
+  padding: 10px;
+}
+
+@media screen and (width >= 720px) {
+  .card-display {
+    margin-left: 4em;
+  }
+
+  .card-display .dino-info {
+    width: 330px;
+    height: 465px;
+    padding-top: 35px;
+    padding-left: 30px;
+  }
+
+  .fun-fact {
+    width: 330px;
+  }
+
+  .card-display h3 {
+    margin-left: 0;
+  }
+
+  .logo {
+    width: 60px;
+  }
+}
+
+.dino-info {
+  width: 360px;
+  height: 509px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.gsap-fade {
+  opacity: 0;
+}
+
+.funky-text {
+  letter-spacing: 6px;
+  color: #fff;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1 {
+  color: #fff;
+  font-family: Inria Sans, sans-serif;
+  font-size: 32px;
+  font-style: bold;
+}
+
+h2 {
+  color: #f4fa36;
+  font-family: Inria Sans, sans-serif;
+  font-size: 24px;
+  font-style: bold;
+}
+
+h3 {
+  color: #fff;
+  font-family: Inria Sans, sans-serif;
+  font-size: 32px;
+}
+
+p {
+  color: #79ffff;
+  font-family: Inria Sans, sans-serif;
+  font-size: 16px;
+  font-style: bold;
+}
+
+@media screen and (width >= 712px) {
+  h1 {
+    font-size: 52px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+}
+
+.dino-selection {
+  flex-direction: column;
+  align-items: center;
+  height: 440px;
+  margin-top: 4em;
+  display: flex;
+  position: relative;
+}
+
+.dino-selection ul {
+  scroll-behavior: smooth;
+  flex-direction: column;
+  gap: 9px;
+  max-height: 345px;
+  margin: 40px 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.dino-selection ul li {
+  list-style: none;
+}
+
+.dino-selection ul li svg {
+  width: 81px;
+  height: 73px;
+  transition: filter .3s ease-in-out;
+}
+
+.dino-selection ul li:hover svg path, .dino-selection ul li.active svg path {
+  fill: #79ffff;
+  stroke: #79ffff;
+}
+
+.dino-selection ul li:hover svg ellipse, .dino-selection ul li.active svg ellipse {
+  stroke: #79ffff;
+}
+
+.dino-selection .arrow-up, .dino-selection .arrow-down {
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dino-selection .arrow-up {
+  margin-left: -40px;
+  top: 0;
+  rotate: 180deg;
+}
+
+.dino-selection .arrow-down {
+  bottom: 0;
+}
+
+.selected-icon {
+  margin: 0;
+}
+
+.selected-icon h3 {
+  text-align: center;
+}
+
+.selected-icon svg path {
+  fill: #79ffff;
+  stroke: #79ffff;
+  width: 60px;
+}
+
+.selected-icon svg ellipse {
+  stroke: #79ffff;
+}
+
+.dino_img {
+  width: 80%;
+}
+
+.dangerous-warning {
+  text-align: center;
+  color: #f4fa36;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+@media screen and (width >= 720px) {
+  .dino-icon {
+    width: 93px;
+    height: 83px;
+  }
+
+  .dino-selection {
+    gap: 0;
+    height: auto;
+    margin-top: -.5em;
+    padding: 0 10px;
+    display: grid;
+  }
+
+  .dino-selection ul {
+    max-height: unset;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 0;
+    display: grid;
+    overflow: visible;
+  }
+
+  .dino-selection li {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+  }
+
+  .arrow-up, .arrow-down {
+    display: none;
+  }
+}
+
+@media screen and (width >= 1200px) {
+  .dino-selection ul {
+    grid-template-columns: repeat(4, 1fr);
+    display: grid;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.mobile-hide {
+  visibility: hidden;
+}
+
+@media screen and (width >= 720px) {
+  .mobile-hide {
+    visibility: visible;
+  }
+}
+/*# sourceMappingURL=Jurrassic_OOPS.34df27b5.css.map */
