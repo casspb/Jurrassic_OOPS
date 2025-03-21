@@ -2,15 +2,16 @@
 
 
 body{
-    margin-top: .5em;
     background-image: url("../images/blue-grid.jpg");
+}
+.title-section{
+    background: linear-gradient(to bottom, rgb(0, 33, 66), rgba(0, 51, 102, 0));   
 }
 
 .region-selection{
-    margin-top: 1em;
+    margin-top: 2.3em;
     h2{
         text-align: center;
-        margin-bottom: 1em;
     }
 
     img{
@@ -29,13 +30,16 @@ body{
     width: 81px;
     height: 73px;
 }
-
-
+//footer
+footer{
+    padding: 2em;
+   text-align: center;
+   background: linear-gradient(to bottom, rgba(0, 51, 102, 0), rgb(0, 33, 66));   
+}
 //card display
 
 .card-display{
-    margin-top: 1.5em;
-
+  justify-items: center;
     h3{
         margin-left: 0.2em;
         margin-top: .3em;
@@ -51,15 +55,32 @@ body{
         .dino-card-details{
             padding-top: 60px;
             padding-left: 20px;
+            padding-bottom: 30px;
         }
     }
 }
 
 .fun-fact{
-    padding: 1em;
+    padding: 10px;
+    text-align: center;
+    width: 277px;
+    color: #F4FA36;
 }
 
 @media screen and (min-width: 720px) {
+    .card-display{
+        margin-left: 4em;
+    .dino-info{
+        padding-top: 20px;
+        padding-left: 20px;
+        height: 509px;
+        width: 360px;
+    }
+    }
+    .fun-fact{
+        width: 377px;
+       
+    }
     .card-display{
         h3{
             margin-left: 0;

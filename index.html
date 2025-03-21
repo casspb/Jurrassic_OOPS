@@ -26,19 +26,22 @@
 
 <body >
     <div id="app" class="full-width-grid-con">
-    <section class="title-section grid-con">
-        <div class="title-zone col-span-3 m-col-span-8">
-            <h1>JURASSIC WORLD</h1>
-            <h2>Isla Nublar</h2>
-        </div>
-
-        <div class="logo col-span-1 m-col-start-11">
-            <img src="images/jurassic-world-seeklogo.png" alt="Jurrassic World logo">
-        </div>
-    </section>
+        <header class="title-section col-span-full">
+            <section class=" grid-con">
+                <div class="title-zone col-span-3 m-col-span-8 l-col-start-2">
+                    <h1>JURASSIC WORLD</h1>
+                    <h2>Isla Nublar</h2>
+                </div>
+        
+                <div class="logo col-span-1 m-col-start-11">
+                    <img src="images/jurassic-world-seeklogo.png" alt="Jurrassic World logo">
+                </div>
+            </section>
+        </header>
+   
 
     <section class="grid-con">
-        <div class="dino-selection col-span-1 m-col-span-6 l-col-span-4">
+        <div class="dino-selection col-span-1 m-col-span-4  l-col-start-2 l-col-span-4">
         <img class="arrow-up" src="images/arrow-down.svg" alt="arrow-down">
         <ul>
             <li id="Ankylosaurus">
@@ -135,11 +138,12 @@
         <img class="arrow-down" src="images/arrow-down.svg" alt="arrow-down">
         </div>
 
-        <div class="card-display col-span-3 m-col-span-4">
+        <div class="card-display col-span-3 m-col-span-6 l-col-start-6">
             <div class="grid-con selected-icon">
-                <h3 class="col-span-3">{{ selectedDino?.Name || "Select a Dinosaur" }}</h3>
-    
-                <div class="dino-info col-span-full" v-if="selectedDino">
+                <h3 class="col-span-full">{{ selectedDino?.Name || "Select a Dinosaur" }}</h3>
+                
+                <div class=" col-span-full">
+                <div class="dino-info" v-if="selectedDino">
                     <div class="dino-card-details gsap-fade">
                         <p><span>Height: {{ selectedDino.Height }}</span></p>
                         <p><span>Length: {{ selectedDino.Length }}</span></p>
@@ -149,17 +153,27 @@
                         <img class="dino_img" :src="selectedDino.img" :alt="selectedDino.Name">
                     </div>
                 </div>
+                <p v-if="selectedDino" class="fun-fact">{{ selectedDino.Facts }}</p>
+              
+            </div>
     </div>
-        <p v-if="selectedDino" class="fun-fact">{{ selectedDino.Facts }}</p>
+ 
         </div>
    
 
-    <div class="region-selection col-span-full m-col-start-3 m-col-end-11 l-col-span-4">
+    <!-- <div class="region-selection col-span-full m-col-start-3 m-col-end-11 l-col-span-4">
         <h1 class="hidden">Region selection area and logo</h1>
         <h2 class="funky-text">Region Selection</h2>
         <img src="images/Isla nublar.png" alt="map of isla nublar">
-    </div>
+    </div> -->
     </section>
 </div>
+<footer>
+    <div >
+    <img class="logo" src="images/jurassic-world-seeklogo.png">
+    <p>&copy; 2025 Jurassic World. All rights reserved.</p>
+</div>
+</footer>
+
   </body>
 </html>
