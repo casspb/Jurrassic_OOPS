@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const upArrow = document.querySelector(".arrow-up");
     const downArrow = document.querySelector(".arrow-down");
 
-    const scrollStep = 80; // Adjust scrolling speed
+    const scrollStep = 150; // Adjust scrolling speed
 
     upArrow.addEventListener("click", () => {
         list.scrollBy({ top: -scrollStep, behavior: "smooth" });
