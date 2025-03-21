@@ -26,6 +26,18 @@ class Dinosaur{
         //     look: image
         //}
     }
+    getInfo() {
+        return `${this.Name}: Height - ${this.Height}, Length - ${this.Length}, Diet - ${this.Diet}`;
+      }
 }
 
-export {Dinosaur};
+class DangerousDinosaur extends Dinosaur {
+    constructor(Name, Height, Length, Diet, Personality, Pronunciation, img, Facts) {
+        super(Name, Height, Length, Diet, Personality, Pronunciation, img, Facts);
+         this.dangerous = true; 
+    }
+    getDangerMessage() {
+        return "DANGEROUS! BEWARE!";
+      }
+    }
+export {Dinosaur, DangerousDinosaur};

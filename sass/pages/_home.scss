@@ -45,16 +45,16 @@ footer{
         margin-top: .3em;
     }
     .dino-info{
-        height: 389px;
-        width: 277px;
+        height: 349px;
+        width: 247px;
         background-color: #0fa8c05a ;
         background-image: url(../images/Jurassic-card.png);
         background-size: cover;
         border-radius: 20px;
         
         .dino-card-details{
-            padding-top: 60px;
-            padding-left: 20px;
+            padding-top: 25px;
+            padding-right: 5px;
             padding-bottom: 30px;
         }
     }
@@ -63,7 +63,7 @@ footer{
 .fun-fact{
     padding: 10px;
     text-align: center;
-    width: 277px;
+    width: 247px;
     color: #F4FA36;
 }
 
@@ -71,14 +71,14 @@ footer{
     .card-display{
         margin-left: 4em;
     .dino-info{
-        padding-top: 20px;
-        padding-left: 20px;
-        height: 509px;
-        width: 360px;
+        padding-top: 35px;
+        padding-left: 30px;
+        height: 465px;
+        width: 330px;
     }
     }
     .fun-fact{
-        width: 377px;
+        width: 330px;
        
     }
     .card-display{
@@ -92,3 +92,9 @@ footer{
     }
 }
 
+.dino-info{
+    padding-top: 20px;
+    padding-left: 20px;
+    height: 509px;
+    width: 360px;
+}
