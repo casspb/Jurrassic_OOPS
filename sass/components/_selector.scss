@@ -71,6 +71,11 @@
 }
 
 .selected-icon {
+    h3{
+        text-align: center;
+        margin-bottom: .5em;
+    }
+
     margin: 0;
    svg path {
     width: 60px;
@@ -98,10 +103,8 @@ svg ellipse {
     .dino-selection {
         margin-top: -.5em;
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
         gap: 0px;
         padding: 0 10px;
-        height: auto; /* Adjust height to fit content */
     }
 
     .dino-selection ul {
@@ -123,5 +126,12 @@ svg ellipse {
     .arrow-up,
     .arrow-down {
         display: none;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .dino-selection ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
     }
 }
