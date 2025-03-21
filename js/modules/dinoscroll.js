@@ -1,3 +1,5 @@
+export function dinoscroll() {
+
 document.addEventListener("DOMContentLoaded", () => {
     const list = document.querySelector(".dino-selection ul");
     const upArrow = document.querySelector(".arrow-up");
@@ -28,3 +30,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+}

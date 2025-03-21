@@ -1,7 +1,9 @@
+
+
 // main.js or your Vue entry file
 import { createApp, nextTick} from 'vue';
-import { Dinosaur } from './dinosaur.js';
-import { animateDinoInfo } from './gsap.js'; // Import the animation function
+import { Dinosaur } from '../dinosaur.js';
+import { animateDinoInfo } from '../gsap.js'; // Import the animation function
 
 const dinosaurs = {
     Ankylosaurus: new Dinosaur("Ankylosaurus", "1.8 meters", "7.6 meters", "Herbivorous", "Defensive, Stoic, Loyal", "An-kee-loh-sore-us", "images/ankylosaurus.webp", "Ankylosaurus was as large as a military tank and nearly as hard to attack, even though it was slow."),
@@ -26,7 +28,7 @@ const dinosaurs = {
 //   const Velociraptor = new Dinosaur(
 //       "Velociraptor"
 //   );
-
+export function dinolist() {
 // Vue app
 const app = createApp({
     data() {
@@ -58,3 +60,4 @@ const app = createApp({
       });
     },
   }).mount("#app");
+}
