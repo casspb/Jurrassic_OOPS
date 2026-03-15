@@ -11,6 +11,7 @@
   entry,
   mainEntry,
   parcelRequireName,
+  externals,
   distDir,
   publicUrl,
   devServer
@@ -44,6 +45,9 @@
   function newRequire(name, jumped) {
     if (!cache[name]) {
       if (!modules[name]) {
+        if (externals[name]) {
+          return externals[name];
+        }
         // if we cannot find the module within our internal map or
         // cache jump to the current global require ie. the last bundle
         // that was added to the page.
@@ -90,7 +94,54 @@
 
     function localRequire(x) {
       var res = localRequire.resolve(x);
-      return res === false ? {} : newRequire(res);
+      if (res === false) {
+        return {};
+      }
+      // Synthesize a module to follow re-exports.
+      if (Array.isArray(res)) {
+        var m = {__esModule: true};
+        res.forEach(function (v) {
+          var key = v[0];
+          var id = v[1];
+          var exp = v[2] || v[0];
+          var x = newRequire(id);
+          if (key === '*') {
+            Object.keys(x).forEach(function (key) {
+              if (
+                key === 'default' ||
+                key === '__esModule' ||
+                Object.prototype.hasOwnProperty.call(m, key)
+              ) {
+                return;
+              }
+
+              Object.defineProperty(m, key, {
+                enumerable: true,
+                get: function () {
+                  return x[key];
+                },
+              });
+            });
+          } else if (exp === '*') {
+            Object.defineProperty(m, key, {
+              enumerable: true,
+              value: x,
+            });
+          } else {
+            Object.defineProperty(m, key, {
+              enumerable: true,
+              get: function () {
+                if (exp === 'default') {
+                  return x.__esModule ? x.default : x;
+                }
+                return x[exp];
+              },
+            });
+          }
+        });
+        return m;
+      }
+      return newRequire(res);
     }
 
     function resolve(x) {
@@ -156,7 +207,7 @@
       });
     }
   }
-})({"kimK3":[function(require,module,exports,__globalThis) {
+})({"7OWRY":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -288,7 +339,8 @@ if (!parent || !parent.isParcelRequire) {
         if (typeof WebSocket !== 'undefined') try {
             ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/');
         } catch (err) {
-            if (err.message) console.error(err.message);
+            // Ignore cloudflare workers error.
+            if (err.message && !err.message.includes('Disallowed operation called within global scope')) console.error(err.message);
         }
     }
     if (ws) {
@@ -1591,7 +1643,7 @@ class VueElement extends BaseClass {
         this._ob = null;
         if (this.shadowRoot && _createApp !== createApp) this._root = this.shadowRoot;
         else {
-            if (0, this.shadowRoot) (0, _runtimeCore.warn)(`Custom element has pre-rendered declarative shadow root but is not defined as hydratable. Use \`defineSSRCustomElement\`.`);
+            if (this.shadowRoot) (0, _runtimeCore.warn)(`Custom element has pre-rendered declarative shadow root but is not defined as hydratable. Use \`defineSSRCustomElement\`.`);
             if (_def.shadowRoot !== false) {
                 this.attachShadow({
                     mode: "open"
@@ -2356,7 +2408,7 @@ function normalizeContainer(container) {
         if (!res) (0, _runtimeCore.warn)(`Failed to mount app: mount target selector "${container}" returned null.`);
         return res;
     }
-    if ((0, window.ShadowRoot) && container instanceof window.ShadowRoot && container.mode === "closed") (0, _runtimeCore.warn)(`mounting on a ShadowRoot with \`{mode: "closed"}\` may lead to unpredictable bugs`);
+    if (window.ShadowRoot && container instanceof window.ShadowRoot && container.mode === "closed") (0, _runtimeCore.warn)(`mounting on a ShadowRoot with \`{mode: "closed"}\` may lead to unpredictable bugs`);
     return container;
 }
 let ssrDirectiveInitialized = false;
@@ -3565,7 +3617,7 @@ function getInnerChild$1(vnode) {
         if (isTeleport(vnode.type) && vnode.children) return findNonCommentChild(vnode.children);
         return vnode;
     }
-    if (0, vnode.component) return vnode.component.subTree;
+    if (vnode.component) return vnode.component.subTree;
     const { shapeFlag, children } = vnode;
     if (children) {
         if (shapeFlag & 16) return children[0];
@@ -4753,7 +4805,7 @@ const PublicInstanceProxyHandlers = {
         if (hasSetupBinding(setupState, key)) {
             setupState[key] = value;
             return true;
-        } else if ((0, setupState.__isScriptSetup) && (0, _shared.hasOwn)(setupState, key)) {
+        } else if (setupState.__isScriptSetup && (0, _shared.hasOwn)(setupState, key)) {
             warn$1(`Cannot mutate <script setup> binding "${key}" from Options API.`);
             return false;
         } else if (data !== (0, _shared.EMPTY_OBJ) && (0, _shared.hasOwn)(data, key)) {
@@ -5256,20 +5308,20 @@ function createAppAPI(render, hydrate) {
             component (name, component) {
                 validateComponentName(name, context.config);
                 if (!component) return context.components[name];
-                if (0, context.components[name]) warn$1(`Component "${name}" has already been registered in target app.`);
+                if (context.components[name]) warn$1(`Component "${name}" has already been registered in target app.`);
                 context.components[name] = component;
                 return app;
             },
             directive (name, directive) {
                 validateDirectiveName(name);
                 if (!directive) return context.directives[name];
-                if (0, context.directives[name]) warn$1(`Directive "${name}" has already been registered in target app.`);
+                if (context.directives[name]) warn$1(`Directive "${name}" has already been registered in target app.`);
                 context.directives[name] = directive;
                 return app;
             },
             mount (rootContainer, isHydrate, namespace) {
                 if (!isMounted) {
-                    if (0, rootContainer.__vue_app__) warn$1(`There is already an app instance mounted on the host container.
+                    if (rootContainer.__vue_app__) warn$1(`There is already an app instance mounted on the host container.
  If you want to mount another app on the same host container, you need to unmount the previous app by calling \`app.unmount()\` first.`);
                     const vnode = app._ceVNode || createVNode(rootComponent, rootProps);
                     vnode.appContext = context;
@@ -5736,7 +5788,7 @@ function initFeatureFlags() {
         needWarn.push(`__VUE_PROD_HYDRATION_MISMATCH_DETAILS__`);
         (0, _shared.getGlobalThis)().__VUE_PROD_HYDRATION_MISMATCH_DETAILS__ = false;
     }
-    if (0, needWarn.length) {
+    if (needWarn.length) {
         const multi = needWarn.length > 1;
         console.warn(`Feature flag${multi ? `s` : ``} ${needWarn.join(", ")} ${multi ? `are` : `is`} not explicitly defined. You are running the esm-bundler build of Vue, which expects these compile-time feature flags to be globally injected via the bundler config in order to get better tree-shaking in the production bundle.
 
@@ -5997,7 +6049,7 @@ function baseCreateRenderer(options, createHydrationFns) {
     };
     const mountComponent = (initialVNode, container, anchor, parentComponent, parentSuspense, namespace, optimized)=>{
         const instance = initialVNode.component = createComponentInstance(initialVNode, parentComponent, parentSuspense);
-        if (0, instance.type.__hmrId) registerHMR(instance);
+        if (instance.type.__hmrId) registerHMR(instance);
         pushWarningContext(initialVNode);
         startMeasure(instance, `mount`);
         if (isKeepAlive(initialVNode)) instance.ctx.renderer = internals;
@@ -6383,7 +6435,7 @@ function baseCreateRenderer(options, createHydrationFns) {
         hostRemove(end);
     };
     const unmountComponent = (instance, parentSuspense, doRemove)=>{
-        if (0, instance.type.__hmrId) unregisterHMR(instance);
+        if (instance.type.__hmrId) unregisterHMR(instance);
         const { bum, scope, job, subTree, um, m, a } = instance;
         invalidateMount(m);
         invalidateMount(a);
@@ -6778,7 +6830,7 @@ function renderComponentRoot(instance) {
     try {
         if (vnode.shapeFlag & 4) {
             const proxyToUse = withProxy || proxy;
-            const thisProxy = (0, setupState.__isScriptSetup) ? new Proxy(proxyToUse, {
+            const thisProxy = setupState.__isScriptSetup ? new Proxy(proxyToUse, {
                 get (target, key, receiver) {
                     warn$1(`Property '${String(key)}' was accessed via 'this'. Avoid using 'this' in templates.`);
                     return Reflect.get(target, key, receiver);
@@ -8621,7 +8673,7 @@ class Dep {
                 if (activeSub.deps === link) activeSub.deps = next;
             }
         }
-        if (0, activeSub.onTrack) activeSub.onTrack((0, _shared.extend)({
+        if (activeSub.onTrack) activeSub.onTrack((0, _shared.extend)({
             effect: activeSub
         }, debugInfo));
         return link;
@@ -14061,7 +14113,7 @@ function processIf(node, dir, context, processCodegen) {
         context.onError(createCompilerError(28, dir.loc));
         dir.exp = createSimpleExpression(`true`, false, loc);
     }
-    if (0, dir.exp) validateBrowserExpression(dir.exp, context);
+    if (dir.exp) validateBrowserExpression(dir.exp, context);
     if (dir.name === "if") {
         const branch = createIfBranch(node, dir);
         const ifNode = {
@@ -14092,7 +14144,7 @@ function processIf(node, dir, context, processCodegen) {
                 if (dir.name === "else-if" && sibling.branches[sibling.branches.length - 1].condition === void 0) context.onError(createCompilerError(30, node.loc));
                 context.removeNode();
                 const branch = createIfBranch(node, dir);
-                if ((0, comments.length) && // #3619 ignore comments if the v-if is direct child of <transition>
+                if (comments.length && // #3619 ignore comments if the v-if is direct child of <transition>
                 !(context.parent && context.parent.type === 1 && (context.parent.tag === "transition" || context.parent.tag === "Transition"))) branch.children = [
                     ...comments,
                     ...branch.children
@@ -15396,6 +15448,6 @@ module.exports = module.bundle.resolve("suchomimus.3de60b5c.webp") + "?" + Date.
 },{}],"5GF0Q":[function(require,module,exports,__globalThis) {
 module.exports = module.bundle.resolve("triceratops.6b238d9a.webp") + "?" + Date.now();
 
-},{}]},["kimK3","3576K"], "3576K", "parcelRequire3199", "./", "/")
+},{}]},["7OWRY","3576K"], "3576K", "parcelRequire3199", {}, "./", "/")
 
 //# sourceMappingURL=Jurrassic_OOPS.57da488a.js.map
